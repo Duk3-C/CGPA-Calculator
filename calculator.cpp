@@ -6,11 +6,14 @@
 
 using namespace std;
 
-void CalculateCGPA()
-void CGPAMethod()
+void CalculateCGPA();
+void CGPAMethod();
+
+int input;
 
 int main()
 {
+
     system("cls");
     system("clear");
 
@@ -18,8 +21,29 @@ int main()
             "                 CGPA Calculator                \n" <<
             "================================================\n\n";
 
+    cout << "> What would you like to do?\n\n";
+    cout << "> 1. Calculate Cumulative Grade Point Average (CGPA)\n";
+    cout << "> 2. View method used for calculating CGPA\n";
+    cout << "> 3. Quit program\n\n";
     
-    return 0;
+    cout << "> Enter your choice: ";
+    cin >> input;
+    
+    switch(input)
+    {
+      case 1:
+        CalculateCGPA();
+        break;
+      case 2:
+        CGPAMethod();
+        break;
+      case 3:
+        exit(EXIT_SUCCESS);
+        break;
+      default:
+        cout << "Invalid input. Please enter either 1, 2, or 3.\n\n";
+        break;
+    }
 }
 
 void CalculateCGPA()
@@ -36,6 +60,6 @@ void CGPAMethod()
   system("clear");
 
   cout << "-----------------Method for calculating CGPA ------------------\n\n";
-  cout << "> "
+  cout << "> ";
 
 }
