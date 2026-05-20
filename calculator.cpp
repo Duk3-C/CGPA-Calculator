@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include "methods.h"
 
 using namespace std;
 
@@ -44,22 +45,4 @@ int main()
         cout << "Invalid input. Please enter either 1, 2, or 3.\n\n";
         break;
     }
-}
-
-void CalculateCGPA()
-{
-  system("clear");
-
-  cout << "---------------------------CGPA------------------------------\n\n";
-  cout << "> ";
-
-}
-
-void CGPAMethod()
-{
-  system("clear");
-
-  cout << "-----------------Method for calculating CGPA ------------------\n\n";
-  cout << "> ";
-
 }
