@@ -8,11 +8,12 @@ using namespace std;
 
 int main()
 {
-  int classes;
-  vector<double> credits;
-  vector<double> grades;
+  // int classes;
+  // vector<double> credits;
+  // vector<double> grades;
 
-  cout << "Enter number of classes (min of 4 - max of 8): ";
+  // Input for amount of classes the student has
+  /*cout << "Enter number of classes (min of 4 - max of 8): ";
   cin >> classes;
   if (classes > 8) 
   {
@@ -20,8 +21,9 @@ int main()
     return 1;
   }
   cout << "\n\n";
-
-  cout << "Enter credits for each class: \n";
+  */
+  // Storing input into credits vector
+  /* cout << "Enter credits for each class: \n";
   for(int i = 0; i < classes; i++) 
   {
     double in;
@@ -35,15 +37,16 @@ int main()
 
     credits.push_back(in);
   }
-
-  // Rusty Debugging method to check how the vectors work
+  */ 
+  // Debugging method to check how the vectors work
   /*for(double c : credits) 
   {
     cout << c << " ";
   }*/
-
+  /*
   cout << "\n\n";
 
+  // Storing grade points for each class
   cout << "Enter grades for each class: \n";
   for(int i = 0; i < classes; i++)
   {
@@ -58,6 +61,7 @@ int main()
 
     grades.push_back(in);
   }
+  */ 
 
   cout << "\n\n";
 
@@ -74,12 +78,21 @@ int main()
   double total_grade_points = accumulate(grades.begin(), grades.end(), 0.0);
   cout << "Total grade points: " << total_grade_points;
   */
+  
+  vector<double> grades = {4, 5, 3, 3, 4.5, 5};
+  vector<double> credits = {3, 5, 4, 3.5, 2, 3};
 
-  double total_class_product = 0.0
-  for (i = 0; i < credits.size(); i++)
+  double total_class_product = 0.0;
+  for (int i = 0; i < credits.size(); i++)
   {
-    total_class_product = grades[i] * credits[i];
+    total_class_product += grades[i] * credits[i];
   }
+  cout << "Total grade points" << total_class_product << "\n\n";
+ 
+  double total_credits = accumulate(credits.begin(), credits.end(), 0);
+
+  cout << "SGPA = " << total_class_product / total_credits;
+
 
   return 0;
 
