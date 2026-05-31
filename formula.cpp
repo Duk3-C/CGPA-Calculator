@@ -87,12 +87,14 @@ int main()
   {
     total_class_product += grades[i] * credits[i];
   }
-  cout << "Total grade points" << total_class_product << "\n\n";
+  cout << "Total grade points: " << total_class_product << "\n\n";
  
   double total_credits = accumulate(credits.begin(), credits.end(), 0);
 
   cout << "SGPA = " << total_class_product / total_credits;
 
+  double gpa = 4*1.5;
+  cout << "gpa: " << gpa;
 
   return 0;
 
