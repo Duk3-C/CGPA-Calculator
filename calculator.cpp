@@ -1,13 +1,20 @@
 // Simple CGPA Calculator Project created in C++. Made use of simple algorithms and OOP.
 // Project is fully open to anybody and any inquiries or advices you wanna leave are wellcome.
-
-#include <iostream>
 #include <stdlib.h>
-#include "methods.h"
+#include <numeric>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
+void CalculateGPA();
+void CalculateSGPA();
 void CalculateCGPA();
+void GPAMethod();
+void SGPAMethod();
 void CGPAMethod();
 
 int input;
@@ -19,13 +26,17 @@ int main()
     system("clear");
 
     cout << "================================================\n" <<
-            "                 CGPA Calculator                \n" <<
+            "                 GPA Calculator                \n" <<
             "================================================\n\n";
 
     cout << "> What would you like to do?\n\n";
-    cout << "> 1. Calculate Cumulative Grade Point Average (CGPA)\n";
-    cout << "> 2. View method used for calculating CGPA\n";
-    cout << "> 3. Quit program\n\n";
+    cout << "> 1. Calculate Grade Point Average (GPA)\n";
+    cout << "> 2. Calculate Semester Grade Point Average (SGPA)\n";
+    cout << "> 3. Calculate Cumulative Grade Point Average (CGPA)\n";
+    cout << "> 4. View method used for calculating GPA\n";
+    cout << "> 5. View method used for calculating SGPA\n";
+    cout << "> 6. View method used for calculating CGPA\n";    
+    cout << "> 7. Quit program\n\n";
     
     cout << "> Enter your choice: ";
     cin >> input;
@@ -33,16 +44,67 @@ int main()
     switch(input)
     {
       case 1:
-        CalculateCGPA();
+        CalculateGPA();
         break;
-      case 2:
-        CGPAMethod();
+      /* case 2:
+        CalculateSGPA();
         break;
       case 3:
+        CalculateCGPA();
+        break;
+      case 4:
+        GPAMethod();
+        break;
+      case 5:
+        SGPAMethod();
+        break;
+      case 6:
+        CGPAMethod();
+        break;
+      */
+      case 7:
         exit(EXIT_SUCCESS);
         break;
       default:
-        cout << "Invalid input. Please enter either 1, 2, or 3.\n\n";
+        cout << "Invalid input. Please enter either option.\n\n";
+        main();
         break;
     }
 }
+
+void CalculateGPA()
+{
+
+  system("clear");
+
+  string student_name;
+  int subject_amount;
+  string subject_name;
+  double credit;
+  double grade;
+
+  cout << "Enter the name of the stundent: ";
+  getline(cin, student_name);
+  cout << "\n\n";
+
+  cout << "How many subjects would you like to calculate? ";
+  cin >> subject_amount;
+  cout << "\n\n";
+
+  cout << "Enter the amount of credits for each subject: ";
+  cin >> credit;
+  cout << "\n\n";
+
+  cout << "Enter  your student's grade for this subject (in a scale of 0-5): ";
+  cin >> grade;
+  if (grade > 5)
+  {
+    cerr << "Invalid Answer...\n"
+         << "Returning to main menu.";
+    main();
+  }
+  cout << "\n\n";
+
+  double gpa = grade*credit/credit;
+
+};

@@ -6,12 +6,13 @@
 
 using namespace std;
 
-void CalculateSingleGPA()
+void CalculateGPA()
 {
 
   system("clear");
 
   int student_name;
+  int subject_amount;
   string subject_name;
   double credit;
   double grade;
@@ -30,9 +31,15 @@ void CalculateSingleGPA()
 
   cout << "Enter  your student's grade for this subject (in a scale of 0-5): ";
   cin >> grade;
-  if(grade>5){ cout<<"Invalid Answer..."; main(); };
+  if (grade > 5)
+  {
+    cerr << "Invalid Answer...";
+    exit(EXIT_FAILURE);
+  }
   cout << "\n\n";
 
   double gpa = grade*credit/credit;
 
 };
+
+
