@@ -82,7 +82,8 @@ void CalculateGPA()
   string subject_name;
   vector<double> credit;
   vector<double> grade;
-  
+  double gc_in;
+
   cout << "======== GPA CALCULATOR ==========\n\n";
   cout << "Enter the name of the stundent: ";
   cin.ignore();
@@ -96,19 +97,42 @@ void CalculateGPA()
   cout << "Enter the amount of credits for each subject: ";
   for(int i=0; i<subject_amount; i++)
   {
-    cin >> ::input;
-    credit.push_back(::input);
+    cin >> gc_in;
+    if(gc_in > 6.0)
+    {
+      cerr << "Invalid Answer, returning to beginning of this segment...\n\n";
+      this_thread::sleep_for(chrono::seconds(1));
+
+    }
+    credit.push_back(gc_in);
+    CalculateGPA();
   }
   cout << "\n\n";
 
   cout << "Enter  your student's grade for this subject (in a scale of 0-5): ";
   for(int i=0; i<subject_amount; i++)
   {
-    cin >> ::input;
-    grade.push_back(::input);
+    cin >> gc_in;
+    if(gc_in > 5.0)
+    {
+      cerr << "Invalid Answer, returning to beginning of this segment...\n\n";
+      this_thread::sleep_for(chrono::seconds(1));
+      CalculateGPA();
+    }
+    grade.push_back(gc_in);
   }
-  cout << "\n\n";
 
-  //double gpa = grade*credit/credit;
+  double total_grade = 0.0;
+  for(int j=0; j<credit.size(); j++)
+  {
+    total_grade += grade[j] * credit[j];
+  }
+
+  double total_credits = accumulate(credit.begin(), credit.end(), 0);
+  double gpa = total_grade / total_credits;
+
+  cout << "Your student's GPA is: "
+       << gpa
+       << "\n";
 
 };
